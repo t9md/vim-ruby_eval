@@ -2,10 +2,9 @@ What is this
 ==================================
 Evaluate selected text as ruby code then print or insert. 
 
-I love ruby, one of the goodness of ruby is it has several expression to express 
- array or string.
-When I write other language such as Python or JavaScript and want to prepare 
-array '[ "a", "b", "c", "d" ]'.
+I love Ruby, one of the goodness of ruby is it has many way to express Array , String , etc..
+When I write other Language such as Python or JavaScript and want to prepare 
+array `[ "a", "b", "c", "d" ]`.
 You can write `%w(a b c d)` then select text , then execute `:RubyEvalInsert` to 
 insert `[ "a", "b", "c", "d" ]` to buffer.
 
