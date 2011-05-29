@@ -123,21 +123,20 @@ class RubyEval
     end
 
     def eval_obj
-      if defined?(@__rubyeval__evalobj) and @__rubyeval__evalobj
-        return @__rubyeval__evalobj
-      end
+      @__eval_obj ||= init_eval_obj
+      @__eval_obj
+    end
 
-      @__rubyeval__evalobj = Object.new
-      class << @__rubyeval__evalobj
-        def __rubyeval__binding
-          @__rubyeval__binding ||= binding
-        end
+    def init_eval_obj
+      o = Object.new
+      def o.__rubyeval__binding
+        @__rubyeval__binding ||= binding
       end
-      @__rubyeval__evalobj
+      o
     end
 
     def reset!
-      @__rubyeval__evalobj = nil
+      @__eval_obj = nil
     end
 
     def result(meth)
@@ -158,6 +157,10 @@ class RubyEval
   class << self
     def buffer
       @b ||= Buffer.new
+    end
+
+    def reset!
+      buffer.reset!
     end
 
     def insert_ruby_eval(mode='p')
