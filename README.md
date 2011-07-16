@@ -15,17 +15,22 @@ Requirement
 
 Example keymap
 ==================================
-    vnoremap <silent> <M-p> :<C-u>RubyEvalPrint<CR>
-    vnoremap <silent> <M-i> :<C-u>RubyEvalInsert<CR>
-    vnoremap <silent> <Leader>p :<C-u>RubyEvalPrint<CR>
-    vnoremap <silent> <Leader>i :<C-u>RubyEvalInsert<CR>
-    vnoremap <silent> <C-x>p :<C-u>RubyEvalPrint<CR>
-    vnoremap <silent> <C-x>e :<C-u>RubyEvalInsert<CR>
+    vnoremap <silent> <Space>p :<C-u>RubyEvalPrint<CR>
+    vnoremap <silent> <Space>i :<C-u>RubyEvalInsert<CR>
 
-    nnoremap <silent> <M-p> :<C-u>RubyEvalPrint<CR>
-    nnoremap <silent> <M-i> :<C-u>RubyEvalInsert<CR>
-    nnoremap <silent> <C-x>p :<C-u>RubyEvalPrint<CR>
-    nnoremap <silent> <C-x>e :<C-u>RubyEvalInsert<CR>
-    nnoremap <silent> <Leader>p :<C-u>RubyEvalPrint<CR>
-    nnoremap <silent> <Leader>i :<C-u>RubyEvalInsert<CR>
+    nnoremap <silent> <Space>p :<C-u>RubyEvalPrint<CR>
+    nnoremap <silent> <Space>i :<C-u>RubyEvalInsert<CR>
 
+Usage Example
+==================================
+In following what I want you to try is.. 
+set cursor position to ruby fragment, then execute `:RubyEvalInsert`
+
+## insert 10 size array for random number from 1 to 6 to buffer
+    10.times.map {|n| rand(6) + 1}
+
+## insert array for "A" to "Z"
+    ("A".."Z").to_a.join()
+
+## to insert `{"port"=>"80", "ip"=>"192.168.1.1"}` to buffer with minimal key stroke
+    Hash[*%w(port 80 ip 192.168.1.1)]
